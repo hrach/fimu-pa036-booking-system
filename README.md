@@ -1,16 +1,26 @@
-Rezervaèní sytém multikina
+RezervaÄnÃ­ sytÃ©m multikina
 ==========================
 
-1. Pøedmìt projektu
+1. PÅ™edmÄ›t projektu
 -------------------
-**1.1. Vıchozí stav**
-Investor (dále provozovatel) vstupuje do nového segmentu zábavy - provoz multikina a potøebuje rezervaèní systém pro jednotlivé sály v kinì. Provozovatel ji úspìšnì provozuje jiné projekty a má hotovou integraci platebních brán. Jeho cílem je vytvoøit konkurenènì schopnı rezervaèní systém místenek v jeho novém kinì.
-**1.2. Úèel projektu**
-Provozovatel poaduje vysokou konkurenceschopnost rezervaèního systému, respektive multikina. Provozovatel plánuje v blízké budoucnosti vybudovat i multikino v dalších mìstech. Provozovatel má zájem nabízet rùzné cenové hladiny pro filmy v 3D a v 2D, pro rùzné vìkové skupiny apod. Souèástí zadání je poadavek na evidenci zákazníkù, jejich klub a moné slevy.
-**1.3. Klíèové poadavky**
-*1.3.1. Poadavky multikina*
-Systém je pøipraven pro nasazení v neomezeném mnoství kin, která mají neomezené mnoství sálù. Jednotlivá nabídka filmù v jednotlivıch kinech se mùe lišit.
-*1.3.2. Místenky*
-Systém umoòuje nákup jednotlivé místenky pro konkrétní film v konkrétním sále. Cena místenky mùe bıt ovlivnìna filmem (a jeho typem, napø. 3D), sálem a konkrétním místem a samotnım zákazníkem (èlenství v klubu).
-*1.3.3. Pøehled v nejbliší dobì vysílanıch filmù a volnıch míst*
-Aplikace poskytne jednoduchı pøehled pro LCD televize na pokladnì. Tento pøehled bude obsahovat promítané filmy, které ještì ten den budou odvysílány. Upoutávky na jednotlivá filmová promítání budou zobrazeny s doprovodnımi texty a èasy jejich vysílání a dále se budou zobrazovat aktuální poèty volnıch míst k zakoupení.
+**1.1. VÃ½chozÃ­ stav**
+
+Investor (dÃ¡le provozovatel) vstupuje do novÃ©ho segmentu zÃ¡bavy - provoz multikina a potÅ™ebuje rezervaÄnÃ­ systÃ©m pro jednotlivÃ© sÃ¡ly v kinÄ›. Provozovatel jiÅ¾ ÃºspÄ›Å¡nÄ› provozuje jinÃ© projekty a mÃ¡ hotovou integraci platebnÃ­ch brÃ¡n. Jeho cÃ­lem je vytvoÅ™it konkurenÄnÄ› schopnÃ½ rezervaÄnÃ­ systÃ©m mÃ­stenek v jeho novÃ©m kinÄ›.
+
+**1.2. ÃšÄel projektu**
+
+Provozovatel poÅ¾aduje vysokou konkurenceschopnost rezervaÄnÃ­ho systÃ©mu, respektive multikina. Provozovatel plÃ¡nuje v blÃ­zkÃ© budoucnosti vybudovat i multikino v dalÅ¡Ã­ch mÄ›stech. Provozovatel mÃ¡ zÃ¡jem nabÃ­zet rÅ¯znÃ© cenovÃ© hladiny pro filmy v 3D a v 2D, pro rÅ¯znÃ© vÄ›kovÃ© skupiny apod. SouÄÃ¡stÃ­ zadÃ¡nÃ­ je poÅ¾adavek na evidenci zÃ¡kaznÃ­kÅ¯, jejich klub a moÅ¾nÃ© slevy.
+
+**1.3. KlÃ­ÄovÃ© poÅ¾adavky**
+
+*1.3.1. PoÅ¾adavky multikina*
+
+SystÃ©m je pÅ™ipraven pro nasazenÃ­ v neomezenÃ©m mnoÅ¾stvÃ­ kin, kterÃ¡ majÃ­ neomezenÃ© mnoÅ¾stvÃ­ sÃ¡lÅ¯. JednotlivÃ¡ nabÃ­dka filmÅ¯ v jednotlivÃ½ch kinech se mÅ¯Å¾e liÅ¡it.
+
+*1.3.2. MÃ­stenky*
+
+SystÃ©m umoÅ¾Åˆuje nÃ¡kup jednotlivÃ© mÃ­stenky pro konkrÃ©tnÃ­ film v konkrÃ©tnÃ­m sÃ¡le. Cena mÃ­stenky mÅ¯Å¾e bÃ½t ovlivnÄ›na filmem (a jeho typem, napÅ™. 3D), sÃ¡lem a konkrÃ©tnÃ­m mÃ­stem a samotnÃ½m zÃ¡kaznÃ­kem (ÄlenstvÃ­ v klubu).
+
+*1.3.3. PÅ™ehled v nejbliÅ¾Å¡Ã­ dobÄ› vysÃ­lanÃ½ch filmÅ¯ a volnÃ½ch mÃ­st*
+
+Aplikace poskytne jednoduchÃ½ pÅ™ehled pro LCD televize na pokladnÄ›. Tento pÅ™ehled bude obsahovat promÃ­tanÃ© filmy, kterÃ© jeÅ¡tÄ› ten den budou odvysÃ­lÃ¡ny. UpoutÃ¡vky na jednotlivÃ¡ filmovÃ¡ promÃ­tÃ¡nÃ­ budou zobrazeny s doprovodnÃ½mi texty a Äasy jejich vysÃ­lÃ¡nÃ­ a dÃ¡le se budou zobrazovat aktuÃ¡lnÃ­ poÄty volnÃ½ch mÃ­st k zakoupenÃ­.
