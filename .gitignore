@@ -1,4 +1,5 @@
 /app-dev-root/app/bootstrap.php.cache
+/app-dev-root/app/config/parameters.yml
 /app-dev-root/app/cache/*
 /app-dev-root/app/logs/*
 !app/cache/.gitkeep

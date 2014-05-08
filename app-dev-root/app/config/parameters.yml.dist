@@ -1,9 +1,9 @@
 parameters:
-    database_driver:   pdo_mysql
-    database_host:     127.0.0.1
-    database_port:     ~
-    database_name:     symfony
-    database_user:     root
+    database_driver: pdo_pgsql
+    database_host: localhost
+    database_port: '5432'
+    database_name: dev_hulek
+    database_user: hulek
     database_password: ~
 
     mailer_transport:  smtp
@@ -12,4 +12,4 @@ parameters:
     mailer_password:   ~
 
     locale:            en
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    secret:            sqJsin13E1ubM1PcJSgT
