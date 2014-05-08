@@ -18,7 +18,7 @@ Date: 2014-05-07 11:45:50
 -- ----------------------------
 -- Sequence structure for booking_booking_id_seq
 -- ----------------------------
-DROP SEQUENCE "public"."booking_booking_id_seq";
+DROP SEQUENCE IF EXISTS "public"."booking_booking_id_seq";
 CREATE SEQUENCE "public"."booking_booking_id_seq"
  INCREMENT 1
  MINVALUE 1
@@ -30,7 +30,7 @@ SELECT setval('"public"."booking_booking_id_seq"', 2, true);
 -- ----------------------------
 -- Sequence structure for booking_status_booking_status_id_seq
 -- ----------------------------
-DROP SEQUENCE "public"."booking_status_booking_status_id_seq";
+DROP SEQUENCE IF EXISTS "public"."booking_status_booking_status_id_seq";
 CREATE SEQUENCE "public"."booking_status_booking_status_id_seq"
  INCREMENT 1
  MINVALUE 1
@@ -42,7 +42,7 @@ SELECT setval('"public"."booking_status_booking_status_id_seq"', 3, true);
 -- ----------------------------
 -- Sequence structure for branch_office_branch_office_id_seq
 -- ----------------------------
-DROP SEQUENCE "public"."branch_office_branch_office_id_seq";
+DROP SEQUENCE IF EXISTS "public"."branch_office_branch_office_id_seq";
 CREATE SEQUENCE "public"."branch_office_branch_office_id_seq"
  INCREMENT 1
  MINVALUE 1
@@ -54,7 +54,7 @@ SELECT setval('"public"."branch_office_branch_office_id_seq"', 1, true);
 -- ----------------------------
 -- Sequence structure for club_club_id_seq
 -- ----------------------------
-DROP SEQUENCE "public"."club_club_id_seq";
+DROP SEQUENCE IF EXISTS "public"."club_club_id_seq";
 CREATE SEQUENCE "public"."club_club_id_seq"
  INCREMENT 1
  MINVALUE 1
@@ -65,7 +65,7 @@ CREATE SEQUENCE "public"."club_club_id_seq"
 -- ----------------------------
 -- Sequence structure for country_country_id_seq
 -- ----------------------------
-DROP SEQUENCE "public"."country_country_id_seq";
+DROP SEQUENCE IF EXISTS "public"."country_country_id_seq";
 CREATE SEQUENCE "public"."country_country_id_seq"
  INCREMENT 1
  MINVALUE 1
@@ -77,7 +77,7 @@ SELECT setval('"public"."country_country_id_seq"', 1, true);
 -- ----------------------------
 -- Sequence structure for customer_customer_id_seq
 -- ----------------------------
-DROP SEQUENCE "public"."customer_customer_id_seq";
+DROP SEQUENCE IF EXISTS "public"."customer_customer_id_seq";
 CREATE SEQUENCE "public"."customer_customer_id_seq"
  INCREMENT 1
  MINVALUE 1
@@ -89,7 +89,7 @@ SELECT setval('"public"."customer_customer_id_seq"', 1, true);
 -- ----------------------------
 -- Sequence structure for employee_eymploee_id_seq
 -- ----------------------------
-DROP SEQUENCE "public"."employee_eymploee_id_seq";
+DROP SEQUENCE IF EXISTS "public"."employee_eymploee_id_seq";
 CREATE SEQUENCE "public"."employee_eymploee_id_seq"
  INCREMENT 1
  MINVALUE 1
@@ -100,7 +100,7 @@ CREATE SEQUENCE "public"."employee_eymploee_id_seq"
 -- ----------------------------
 -- Sequence structure for genre_genre_id_seq
 -- ----------------------------
-DROP SEQUENCE "public"."genre_genre_id_seq";
+DROP SEQUENCE IF EXISTS "public"."genre_genre_id_seq";
 CREATE SEQUENCE "public"."genre_genre_id_seq"
  INCREMENT 1
  MINVALUE 1
@@ -112,7 +112,7 @@ SELECT setval('"public"."genre_genre_id_seq"', 1, true);
 -- ----------------------------
 -- Sequence structure for hall_hall_id_seq
 -- ----------------------------
-DROP SEQUENCE "public"."hall_hall_id_seq";
+DROP SEQUENCE IF EXISTS "public"."hall_hall_id_seq";
 CREATE SEQUENCE "public"."hall_hall_id_seq"
  INCREMENT 1
  MINVALUE 1
@@ -124,7 +124,7 @@ SELECT setval('"public"."hall_hall_id_seq"', 4, true);
 -- ----------------------------
 -- Sequence structure for hall_property_hall_property_id_seq
 -- ----------------------------
-DROP SEQUENCE "public"."hall_property_hall_property_id_seq";
+DROP SEQUENCE IF EXISTS "public"."hall_property_hall_property_id_seq";
 CREATE SEQUENCE "public"."hall_property_hall_property_id_seq"
  INCREMENT 1
  MINVALUE 1
@@ -135,7 +135,7 @@ CREATE SEQUENCE "public"."hall_property_hall_property_id_seq"
 -- ----------------------------
 -- Sequence structure for hall_seat_seat_id_seq
 -- ----------------------------
-DROP SEQUENCE "public"."hall_seat_seat_id_seq";
+DROP SEQUENCE IF EXISTS "public"."hall_seat_seat_id_seq";
 CREATE SEQUENCE "public"."hall_seat_seat_id_seq"
  INCREMENT 1
  MINVALUE 1
@@ -147,7 +147,7 @@ SELECT setval('"public"."hall_seat_seat_id_seq"', 20, true);
 -- ----------------------------
 -- Sequence structure for movie_movie_id_seq
 -- ----------------------------
-DROP SEQUENCE "public"."movie_movie_id_seq";
+DROP SEQUENCE IF EXISTS "public"."movie_movie_id_seq";
 CREATE SEQUENCE "public"."movie_movie_id_seq"
  INCREMENT 1
  MINVALUE 1
@@ -159,7 +159,7 @@ SELECT setval('"public"."movie_movie_id_seq"', 1, true);
 -- ----------------------------
 -- Sequence structure for projection_projection_id_seq
 -- ----------------------------
-DROP SEQUENCE "public"."projection_projection_id_seq";
+DROP SEQUENCE IF EXISTS "public"."projection_projection_id_seq";
 CREATE SEQUENCE "public"."projection_projection_id_seq"
  INCREMENT 1
  MINVALUE 1
@@ -171,7 +171,7 @@ SELECT setval('"public"."projection_projection_id_seq"', 1, true);
 -- ----------------------------
 -- Sequence structure for seat_type_seat_type_id_seq
 -- ----------------------------
-DROP SEQUENCE "public"."seat_type_seat_type_id_seq";
+DROP SEQUENCE IF EXISTS "public"."seat_type_seat_type_id_seq";
 CREATE SEQUENCE "public"."seat_type_seat_type_id_seq"
  INCREMENT 1
  MINVALUE 1
@@ -185,13 +185,13 @@ SELECT setval('"public"."seat_type_seat_type_id_seq"', 2, true);
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."booking";
 CREATE TABLE "public"."booking" (
-"booking_id" int4 DEFAULT nextval('booking_booking_id_seq'::regclass) NOT NULL,
-"projection_id" int4,
-"customer_id" int4,
-"booking_status_id" int4,
+"booking_id" integer DEFAULT nextval('booking_booking_id_seq'::regclass) NOT NULL,
+"projection_id" integer,
+"customer_id" integer,
+"booking_status_id" integer,
 "price_total" numeric(10,2),
-"time_created" timestamptz(6),
-"employee_id" int4
+"time_created" timestamp with time zone,
+"employee_id" integer
 )
 WITH (OIDS=FALSE)
 
@@ -202,8 +202,8 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."booking_hall_seat";
 CREATE TABLE "public"."booking_hall_seat" (
-"booking_id" int4,
-"seat_id" int4
+"booking_id" integer,
+"seat_id" integer
 )
 WITH (OIDS=FALSE)
 
@@ -214,7 +214,7 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."booking_status";
 CREATE TABLE "public"."booking_status" (
-"booking_status_id" int4 DEFAULT nextval('booking_status_booking_status_id_seq'::regclass) NOT NULL,
+"booking_status_id" integer DEFAULT nextval('booking_status_booking_status_id_seq'::regclass) NOT NULL,
 "status" varchar(255) COLLATE "default"
 )
 WITH (OIDS=FALSE)
@@ -226,14 +226,14 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."branch_office";
 CREATE TABLE "public"."branch_office" (
-"branch_office_id" int4 DEFAULT nextval('branch_office_branch_office_id_seq'::regclass) NOT NULL,
-"name" varchar(255) COLLATE "default",
+"branch_office_id" integer DEFAULT nextval('branch_office_branch_office_id_seq'::regclass) NOT NULL,
+"name" character varying(255) COLLATE "default",
 "description" text COLLATE "default",
-"address_line_1" varchar(255) COLLATE "default",
-"address_line_2" varchar(255) COLLATE "default",
-"city" varchar(255) COLLATE "default",
-"postal_code" varchar(10) COLLATE "default",
-"country_id" int4
+"address_line_1" character varying(255) COLLATE "default",
+"address_line_2" character varying(255) COLLATE "default",
+"city" character varying(255) COLLATE "default",
+"postal_code" character varying(10) COLLATE "default",
+"country_id" integer
 )
 WITH (OIDS=FALSE)
 
@@ -244,9 +244,9 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."club";
 CREATE TABLE "public"."club" (
-"club_id" int4 DEFAULT nextval('club_club_id_seq'::regclass) NOT NULL,
-"name" varchar(255) COLLATE "default",
-"sale_amount" int4,
+"club_id" integer DEFAULT nextval('club_club_id_seq'::regclass) NOT NULL,
+"name" character varying(255) COLLATE "default",
+"sale_amount" integer,
 "sale_percentage" numeric(3,2)
 )
 WITH (OIDS=FALSE)
@@ -258,8 +258,8 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."country";
 CREATE TABLE "public"."country" (
-"country_id" int4 DEFAULT nextval('country_country_id_seq'::regclass) NOT NULL,
-"name" varchar(255) COLLATE "default" NOT NULL
+"country_id" integer DEFAULT nextval('country_country_id_seq'::regclass) NOT NULL,
+"name" character varying(255) COLLATE "default" NOT NULL
 )
 WITH (OIDS=FALSE)
 
@@ -270,13 +270,13 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."customer";
 CREATE TABLE "public"."customer" (
-"customer_id" int4 DEFAULT nextval('customer_customer_id_seq'::regclass) NOT NULL,
-"first_name" varchar(128) COLLATE "default",
-"last_name" varchar(128) COLLATE "default",
-"phone_number" varchar(15) COLLATE "default",
-"club_id" int4,
-"email" varchar(255) COLLATE "default" NOT NULL,
-"password" varchar(255) COLLATE "default" NOT NULL
+"customer_id" integer DEFAULT nextval('customer_customer_id_seq'::regclass) NOT NULL,
+"first_name" character varying(128) COLLATE "default",
+"last_name" character varying(128) COLLATE "default",
+"phone_number" character varying(15) COLLATE "default",
+"club_id" integer,
+"email" character varying(255) COLLATE "default" NOT NULL,
+"password" character varying(255) COLLATE "default" NOT NULL
 )
 WITH (OIDS=FALSE)
 
@@ -287,9 +287,9 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."employee";
 CREATE TABLE "public"."employee" (
-"employee_id" int4 DEFAULT nextval('employee_eymploee_id_seq'::regclass) NOT NULL,
-"username" varchar(255) COLLATE "default" NOT NULL,
-"password" varchar(255) COLLATE "default" NOT NULL
+"employee_id" integer DEFAULT nextval('employee_eymploee_id_seq'::regclass) NOT NULL,
+"username" character varying(255) COLLATE "default" NOT NULL,
+"password" character varying(255) COLLATE "default" NOT NULL
 )
 WITH (OIDS=FALSE)
 
@@ -300,8 +300,8 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."genre";
 CREATE TABLE "public"."genre" (
-"genre_id" int4 DEFAULT nextval('genre_genre_id_seq'::regclass) NOT NULL,
-"genre_type" varchar(255) COLLATE "default"
+"genre_id" integer DEFAULT nextval('genre_genre_id_seq'::regclass) NOT NULL,
+"genre_type" character varying(255) COLLATE "default"
 )
 WITH (OIDS=FALSE)
 
@@ -312,9 +312,9 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."hall";
 CREATE TABLE "public"."hall" (
-"hall_id" int4 DEFAULT nextval('hall_hall_id_seq'::regclass) NOT NULL,
-"branch_office_id" int4 NOT NULL,
-"label" varchar(255) COLLATE "default" NOT NULL
+"hall_id" integer DEFAULT nextval('hall_hall_id_seq'::regclass) NOT NULL,
+"branch_office_id" integer NOT NULL,
+"label" character varying(255) COLLATE "default" NOT NULL
 )
 WITH (OIDS=FALSE)
 
@@ -325,8 +325,8 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."hall_hall_property";
 CREATE TABLE "public"."hall_hall_property" (
-"hall_property_id" int4,
-"hall_id" int4
+"hall_property_id" integer,
+"hall_id" integer
 )
 WITH (OIDS=FALSE)
 
@@ -337,9 +337,9 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."hall_property";
 CREATE TABLE "public"."hall_property" (
-"hall_property_id" int4 DEFAULT nextval('hall_property_hall_property_id_seq'::regclass) NOT NULL,
-"key" varchar(255) COLLATE "default" NOT NULL,
-"value" varchar(255) COLLATE "default" NOT NULL
+"hall_property_id" integer DEFAULT nextval('hall_property_hall_property_id_seq'::regclass) NOT NULL,
+"key" character varying(255) COLLATE "default" NOT NULL,
+"value" character varying(255) COLLATE "default" NOT NULL
 )
 WITH (OIDS=FALSE)
 
@@ -350,11 +350,11 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."hall_seat";
 CREATE TABLE "public"."hall_seat" (
-"seat_id" int4 DEFAULT nextval('hall_seat_seat_id_seq'::regclass) NOT NULL,
-"hall_id" int4,
-"seat_type_id" int4,
-"seat_row" int4,
-"seat_number" int4
+"seat_id" integer DEFAULT nextval('hall_seat_seat_id_seq'::regclass) NOT NULL,
+"hall_id" integer,
+"seat_type_id" integer,
+"seat_row" integer,
+"seat_number" integer
 )
 WITH (OIDS=FALSE)
 
@@ -365,10 +365,10 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."movie";
 CREATE TABLE "public"."movie" (
-"movie_id" int4 DEFAULT nextval('movie_movie_id_seq'::regclass) NOT NULL,
-"title" varchar(255) COLLATE "default",
+"movie_id" integer DEFAULT nextval('movie_movie_id_seq'::regclass) NOT NULL,
+"title" character varying(255) COLLATE "default",
 "descritption" text COLLATE "default",
-"running_time" int4,
+"running_time" integer,
 "release_date" date
 )
 WITH (OIDS=FALSE)
@@ -380,8 +380,8 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."movie_genre";
 CREATE TABLE "public"."movie_genre" (
-"movie_id" int4 NOT NULL,
-"genre_id" int4 NOT NULL
+"movie_id" integer NOT NULL,
+"genre_id" integer NOT NULL
 )
 WITH (OIDS=FALSE)
 
@@ -392,10 +392,10 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."projection";
 CREATE TABLE "public"."projection" (
-"projection_id" int4 DEFAULT nextval('projection_projection_id_seq'::regclass) NOT NULL,
-"movie_id" int4,
-"hall_id" int4,
-"start" timestamptz(6),
+"projection_id" integer DEFAULT nextval('projection_projection_id_seq'::regclass) NOT NULL,
+"movie_id" integer,
+"hall_id" integer,
+"start" timestamp with time zone,
 "price" numeric(10,2),
 "is_3D" bool DEFAULT false NOT NULL
 )
@@ -408,9 +408,9 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 DROP TABLE IF EXISTS "public"."seat_type";
 CREATE TABLE "public"."seat_type" (
-"seat_type_id" int4 DEFAULT nextval('seat_type_seat_type_id_seq'::regclass) NOT NULL,
-"seat_type" varchar(255) COLLATE "default" NOT NULL,
-"seat_type_sale_amount" int4,
+"seat_type_id" integer DEFAULT nextval('seat_type_seat_type_id_seq'::regclass) NOT NULL,
+"seat_type" character varying(255) COLLATE "default" NOT NULL,
+"seat_type_sale_amount" integer,
 "seat_type_sale_percantage" numeric(3,2)
 )
 WITH (OIDS=FALSE)
@@ -624,3 +624,4 @@ ALTER TABLE "public"."movie_genre" ADD FOREIGN KEY ("genre_id") REFERENCES "publ
 -- ----------------------------
 ALTER TABLE "public"."projection" ADD FOREIGN KEY ("hall_id") REFERENCES "public"."hall" ("hall_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "public"."projection" ADD FOREIGN KEY ("movie_id") REFERENCES "public"."movie" ("movie_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "public"."projection" ADD FOREIGN KEY ("movie_id") REFERENCES "public"."projection_type" ("movie_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
