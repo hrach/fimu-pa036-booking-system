@@ -1,4 +1,4 @@
-/*
+﻿/*
 Navicat PGSQL Data Transfer
 
 Source Server         : localhost
@@ -624,4 +624,5 @@ ALTER TABLE "public"."movie_genre" ADD FOREIGN KEY ("genre_id") REFERENCES "publ
 -- ----------------------------
 ALTER TABLE "public"."projection" ADD FOREIGN KEY ("hall_id") REFERENCES "public"."hall" ("hall_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 ALTER TABLE "public"."projection" ADD FOREIGN KEY ("movie_id") REFERENCES "public"."movie" ("movie_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
-ALTER TABLE "public"."projection" ADD FOREIGN KEY ("movie_id") REFERENCES "public"."projection_type" ("movie_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+-- chybna definice FK
+--ALTER TABLE "public"."projection" ADD FOREIGN KEY ("movie_id") REFERENCES "public"."projection_type" ("movie_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
