@@ -1,0 +1,7 @@
+parameters:
+#    multikino.example.class: PA032\Bundle\MultikinoBundle\Example
+
+services:
+#    multikino.example:
+#        class: %multikino.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

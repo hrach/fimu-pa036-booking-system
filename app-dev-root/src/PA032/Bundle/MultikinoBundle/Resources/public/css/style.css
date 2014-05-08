@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+
+body {
+	background-image: url('../img/bg-strip.jpg');
+	background-position: top;
+	background-repeat: repeat-x;
+	background-color: #1e4350;
+}
+
+body, h1, h2, h3, h4, h5, a {
+	color: #f3f3f3;
+}
+
+.body-wrapper {
+	background-image: url('../img/star.png');
+	background-position: 0 -100px;
+	background-repeat: no-repeat;
+	min-height: 700px;
+}
+
+.intro-orbit li {
+	height: 300px;
+	padding: 20px;
+	background-image: url("../img/banner-bg.png");
+	background-repeat: repeat;
+}
+
+.intro-orbit li * {
+	color: white;
+	text-align: right;	
+}
+
+.intro-orbit .orbit-content {
+	margin: 30px 60px;
+}
+
+.content-wrapper {
+	background-image: url("../img/banner-bg.png");
+	background-repeat: repeat;
+}

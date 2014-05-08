@@ -1,0 +1,3 @@
+multikino:
+    resource: "@MultikinoBundle/Resources/config/routing.yml"
+    prefix:   /
