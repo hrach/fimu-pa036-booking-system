@@ -3,16 +3,21 @@
 {% block pageTitle %}Program &ndash; Starline Cinema | PA032 projekt{% endblock %}
 
 {% block content %}
-  <div class="row content-wrapper">
+  <div class="row panel">
     <div class="large-12 columns">
       <h1>Program</h1>
-      
-      <ul>
-	    {% for branchOffice in listOfBranchOffices %}
-	        <li><a href="{{ path('multikino_program_chooseDate',{'branchOfficeId' : branchOffice.branchOfficeId}) }}">{{ branchOffice.name }}</a></li>
+      <hr />
+      <h2>Přehled poboček multiplexu</h2>
+		{% for branchOffice in listOfBranchOffices %}
+		  <div class="panel row">
+		    <div class="large-3 columns">
+	          <a href="{{ path('multikino_program_chooseDate',{'branchOfficeId' : branchOffice.branchOfficeId}) }}" class="button">{{ branchOffice.name }}</a>
+	        </div>
+	        <div class="large-9 columns">
+	        	<p>{{ branchOffice.description }}</p>
+	        </div>
+	      </div>
 	    {% endfor %}
-	  </ul>
-      
     </div>
   </div>
 {% endblock %}

@@ -17,8 +17,15 @@ class ProgramDAO extends DAOBaseImpl
 	 */
 	public function getProgramRecordByDateAndBranchOfficeId($date, $branchOfficeId)
 	{
-		$strSQL = '
-				SELECT
+		$projectionStartFrom = $date->format("Y-m-d H:i:s");
+		date_add($date, date_interval_create_from_date_string('1 day'));
+		$projectionStartTo = $date->format("Y-m-d H:i:s");
+		
+		$records = array();
+		try
+		{
+			$stmt = $this->db->prepare('
+					SELECT
 				  projection.projection_id as "projection_id",
 				  movie.title AS "title",
 				  movie.descritption AS "descritiption",
@@ -67,12 +74,21 @@ class ProgramDAO extends DAOBaseImpl
 				  LEFT JOIN hall
 				    ON hall.hall_id = projection.hall_id
 				  LEFT JOIN branch_office
-				    ON branch_office.branch_office_id = hall.branch_office_id';
-		try
-		{
-			$records = array();
+				    ON branch_office.branch_office_id = hall.branch_office_id
+				WHERE
+				  branch_office.branch_office_id = :branch_office_id
+				  AND projection.start >= :projection_start_from 
+				  AND projection.start < :projection_start_to
+				ORDER BY
+				  hall.label,
+				  projection.start
+					');
+			$stmt->bindParam(':branch_office_id', $branchOfficeId);
+			$stmt->bindParam(':projection_start_from', $projectionStartFrom);
+			$stmt->bindParam(':projection_start_to', $projectionStartTo);
+			$stmt->execute();
 			
-			$stmt = $this->db->query($strSQL);
+			
 			while ($row = $stmt->fetch(\PDO::FETCH_ASSOC, \PDO::FETCH_ORI_NEXT))
 			{
 				$record = new ProgramRecordVO();
@@ -81,20 +97,20 @@ class ProgramDAO extends DAOBaseImpl
 				$record->descritiption = $row["descritiption"];
 				$record->runningTime = $row["running_time"];
 				$record->releaseYear = $row["release_year"];
-				$record->projectionStartTime = $row["projection_start_time"];
+				$record->projectionStartTime = new \DateTime($row["projection_start_time"]);
 				$record->projectionPrice = $row["projection_price"];
 				$record->hallId = $row["hall_id"];
 				$record->genreTypes = $row["genre_types"];
 				$record->seatsTotal = $row["seats_total"];
 				$record->seatsBooked = $row["seats_booked"];
-				
+				$record->minuteOffsetFromMidnight = $record->projectionStartTime->format("H") * 60 + $record->projectionStartTime->format("i");
 				array_push($records, $record);
 			}
 	
 		}
 		catch (\Exception $e)
 		{
-			
+			throw new \Exception($e);
 		}
 	
 		return $records;

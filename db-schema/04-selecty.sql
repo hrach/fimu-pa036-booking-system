@@ -48,3 +48,5 @@ FROM
     ON hall.hall_id = projection.hall_id
   LEFT JOIN branch_office
     ON branch_office.branch_office_id = hall.branch_office_id
+WHERE
+  projection.start > '1999-01-08 04:05:06'

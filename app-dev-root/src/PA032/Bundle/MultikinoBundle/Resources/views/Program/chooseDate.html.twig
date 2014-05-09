@@ -3,14 +3,19 @@
 {% block pageTitle %}Program &ndash; Starline Cinema | PA032 projekt{% endblock %}
 
 {% block content %}
-  <div class="row content-wrapper">
+  <div class="row panel">
     <div class="large-12 columns">
-      <h1>Program - vyber datum</h1>
-      <ul>
+      <h1>Program - {{ branchOffice.name }}</h1>
+      <hr />
+      <h2>Přehled dnů, kdy se promítá</h2>
+      <div class="row">
+        <div class="large-12 columns panel">
 	    {% for projectionDate in projectionDates %}
-	        <li><a href="{{ path('multikino_program_showProgram',{'branchOfficeId' : branchOfficeId, 'dateString': projectionDate|date("Y-m-d")}) }}">{{ projectionDate|date("Y-m-d") }}</a></li>
+	        <a href="{{ path('multikino_program_showProgram',{'branchOfficeId' : branchOfficeId, 'dateString': projectionDate|date("Y-m-d")}) }}"
+	           class="button">{{ projectionDate|date("Y-m-d") }}</a>
 	    {% endfor %}
-	  </ul>
+  	    </div>
+	  </div>
       
       
     </div>

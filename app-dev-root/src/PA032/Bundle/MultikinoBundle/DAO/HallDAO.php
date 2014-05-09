@@ -18,7 +18,7 @@ class HallDAO extends DAOBaseImpl
 		
 		try
 		{
-			$stmt = $this->db->prepare("SELECT * FROM hall WHERE brach_office_id = :branch_office_id");
+			$stmt = $this->db->prepare("SELECT * FROM hall WHERE branch_office_id = :branch_office_id ORDER BY label");
 			$stmt->bindParam(':branch_office_id', $branchOfficeId);
 			
 			$stmt->execute();

@@ -70,6 +70,12 @@ class ProgramRecordVO
 	 */
 	public $seatsBooked;
 	
+	/**
+	 * Pocet minut od pulnoci
+	 * @var int
+	 */
+	public $minuteOffsetFromMidnight;
+	
 }
 
 ?>

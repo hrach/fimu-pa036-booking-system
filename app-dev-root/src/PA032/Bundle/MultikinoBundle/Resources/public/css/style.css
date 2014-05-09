@@ -7,7 +7,7 @@ body {
 	background-color: #1e4350;
 }
 
-body, h1, h2, h3, h4, h5, a {
+body, h1, h2, h3, h4, h5, a, footer p {
 	color: #f3f3f3;
 }
 
@@ -16,6 +16,10 @@ body, h1, h2, h3, h4, h5, a {
 	background-position: 0 -100px;
 	background-repeat: no-repeat;
 	min-height: 700px;
+}
+
+.body-wrapper, .body-wrapper h1, .body-wrapper h2, .body-wrapper h3, .body-wrapper h4, .body-wrapper h5 {
+	color: #000;
 }
 
 .intro-orbit li {
@@ -27,14 +31,72 @@ body, h1, h2, h3, h4, h5, a {
 
 .intro-orbit li * {
 	color: white;
-	text-align: right;	
 }
 
 .intro-orbit .orbit-content {
 	margin: 30px 60px;
 }
 
-.content-wrapper {
+.intro-orbit li.orbit-content-01 {
+	background-image: url("../img/banner-01.jpg");
+}
+
+.intro-orbit li.orbit-content-02 {
+	background-image: url("../img/banner-02.jpg");
+}
+
+.intro-orbit li.orbit-content-03 {
+	background-image: url("../img/banner-03.jpg");
+}
+
+.intro-orbit li.orbit-content-03 * {
+	text-align: right;
+	color: #333;
+}
+
+.intro-blocks {
+	color: #fff;
+}
+
+.intro-blocks h3 a {
+	text-decoration: underline;
+}
+
+/*************************************
+ * program pobocky
+ */
+
+.schedule-board-wrapper {
+}
+
+.hall .heading {
+	width: 100%;
+}
+
+.schedule-board {
+	position: relative;
 	background-image: url("../img/banner-bg.png");
 	background-repeat: repeat;
+}
+
+.projection {
+	position: absolute;
+	min-width: 100%;
+	border: solid 2px #555;
+}
+
+.projection h4 {
+	font-size: 1.1em;
+}
+
+.projection p {
+	font-size: 0.8em;	
+}
+
+hr.cleaner {
+	clear:both;
+	height:1px;
+	margin: -1px 0 0 0; padding:0;
+	border:none;
+	visibility: hidden;
 }

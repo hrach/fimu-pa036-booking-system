@@ -1,5 +1,8 @@
 <?php
 
+date_default_timezone_set('UTC');
+umask(0);
+
 use Symfony\Component\ClassLoader\ApcClassLoader;
 use Symfony\Component\HttpFoundation\Request;
 

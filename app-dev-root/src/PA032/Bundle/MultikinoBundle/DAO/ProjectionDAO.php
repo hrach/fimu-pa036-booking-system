@@ -52,6 +52,7 @@ class ProjectionDAO extends DAOBaseImpl
 		}
 		catch (\Exception $e)
 		{
+			throw new \Exception($e);
 		}
 		
 		return $records;

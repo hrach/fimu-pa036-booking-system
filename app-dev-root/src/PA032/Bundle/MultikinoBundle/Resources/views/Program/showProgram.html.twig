@@ -3,14 +3,56 @@
 {% block pageTitle %}Program &ndash; Starline Cinema | PA032 projekt{% endblock %}
 
 {% block content %}
-  <div class="row content-wrapper">
+  <div class="row panel">
     <div class="large-12 columns">
-      <h1>Program - ukaz program</h1>
-      
-        {% for programRecord in programRecordList %}
-	        <li>{{ programRecord.projectionStartTime|date("H:i") }} - {{ programRecord.title }} (hall_id: {{ programRecord.hallId }})</li>
+      <h1>Program - {{ branchOffice.name }} / {{ date|date("d. m. Y", "Europe/Prague") }}</h1>
+      <hr />
+      <div class="row schedule-board-wrapper">
+        {% for hall in hallList %}
+	      <div class="large-{{ 12//hallList|length }} columns hall" style="height: {{ maximumMinuteOffset-minimumMinuteOffset+100 }}px">
+	        <div class="heading [success alert secondary] label"><h3 class="">{{ hall.label }}</h3></div>
+	        <div class="schedule-board" style="height: {{ maximumMinuteOffset-minimumMinuteOffset }}px">
+	          {% for programRecord in programRecordList %}
+			    {% if programRecord.hallId == hall.hallId %}
+			    	<a href="{{ path('multikino_detail', {'projectionId': programRecord.projectionId} ) }}">
+				    	<div class="projection panel has-tip"
+				    	     data-tooltip
+				    	     style="top: {{ programRecord.minuteOffsetFromMidnight - minimumMinuteOffset }}px; height: {{ programRecord.runningTime }}px"
+				    	     title="{{ programRecord.descritiption }} Klikněte pro detail">
+				    		<h4>{{ programRecord.title }}</h4>
+				    		<p>
+				    		  {{ programRecord.projectionStartTime|date("H:i", "Europe/Prague") }}, délka {{ programRecord.runningTime }} min.<br />
+				    		  Volná místa: {{ programRecord.seatsTotal - programRecord.seatsBooked }} z {{ programRecord.seatsTotal }}
+				    		</p>
+				    	</div>
+			    	</a>
+			    {% endif %}
+		      {% endfor %}
+	        </div>
+	      </div>
 	    {% endfor %}
-      
+	  </div>
+	  
+{#        <div class="row">#}
+{#         <div class="large-12 columns">#}
+{# 	      <div class="panel">#}
+{# 	        <h4>Zobrazit jiný den</h4>#}
+{# 	        <div class="row">#}
+{# 	          <div class="large-3 columns">#}
+{# 	            <a href="#" class="radius button right">&lt;</a>#}
+{# 	          </div>#}
+{# 	          <div class="large-6 columns">#}
+{# 	          </div>#}
+{# 	          <div class="large-3 columns">#}
+{# 	            <a href="#" class="radius button right">&gt;</a>#}
+{# 	          </div>#}
+{# 	        </div>#}
+{# 	      </div>#}
+{# 	    </div>#}
+{# 	  </div>#}
+	  
     </div>
   </div>
+  
+  
 {% endblock %}

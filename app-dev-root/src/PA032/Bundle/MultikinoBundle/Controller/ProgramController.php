@@ -36,11 +36,15 @@ class ProgramController extends Controller
 	{
 		/* @var $projectionDao ProjectionDAO */
 		$projectionDao = $this->get(MultikinoServiceList::PROJECTION_DAO);
-		
 		$projectionDates = $projectionDao->getDistinctProjectionDatesByIdBranchOffice($branchOfficeId);
+		
+		/* @var $branchOfficeDao BranchOfficeDAO */
+		$branchOfficeDao = $this->get(MultikinoServiceList::BRANCH_OFFICE_DAO);
+		$branchOffice = $branchOfficeDao->getById($branchOfficeId);
 
 		return array("projectionDates" => $projectionDates,
-					 "branchOfficeId" => $branchOfficeId);
+					 "branchOfficeId" => $branchOfficeId,
+				     "branchOffice" => $branchOffice);
 	}
 	
 	/**
@@ -57,14 +61,35 @@ class ProgramController extends Controller
 		$programDao = $this->get(MultikinoServiceList::PROGRAM_DAO);
 		/* @var $branchOfficeDao BranchOfficeDAO */
 		$branchOfficeDao = $this->get(MultikinoServiceList::BRANCH_OFFICE_DAO);
+		$branchOffice = $branchOfficeDao->getById($branchOfficeId);
 		
 		$hallList = $hallDao->getAllByIdBranchOffice($branchOfficeId);
 		
 		$date = new \DateTime($dateString);
 		$programRecordList = $programDao->getProgramRecordByDateAndBranchOfficeId($date, $branchOfficeId);
 		
+		$minimumMinuteOffset = NAN;
+		$maximumMinuteOffset = NAN;
+		foreach ($programRecordList as $programRecord)
+		{
+			if(is_nan($minimumMinuteOffset))
+			{
+				$minimumMinuteOffset = $programRecord->minuteOffsetFromMidnight;
+			}
+			if(is_nan($maximumMinuteOffset))
+			{
+				$maximumMinuteOffset = $programRecord->minuteOffsetFromMidnight + $programRecord->runningTime;
+			}
+			$minimumMinuteOffset = min($minimumMinuteOffset, $programRecord->minuteOffsetFromMidnight);
+			$maximumMinuteOffset = max($maximumMinuteOffset, $programRecord->minuteOffsetFromMidnight + $programRecord->runningTime);
+		}
+		
 		return array("hallList" => $hallList,
-				     "programRecordList" => $programRecordList);
+				     "programRecordList" => $programRecordList,
+					 "branchOffice" => $branchOffice,
+					 "date" => $date,
+					 "minimumMinuteOffset" => $minimumMinuteOffset,
+				     "maximumMinuteOffset" => $maximumMinuteOffset);
 		
 	}
 }
