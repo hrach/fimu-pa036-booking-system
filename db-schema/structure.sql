@@ -83,12 +83,12 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 CREATE TABLE "public"."branch_office" (
 "branch_office_id" serial primary key,
-"name" character varying(255) ,
-"description" text ,
-"address_line_1" character varying(255) ,
-"address_line_2" character varying(255) ,
-"city" character varying(255) ,
-"postal_code" character varying(10) ,
+"name" character varying(255),
+"description" text,
+"address_line_1" character varying(255),
+"address_line_2" character varying(255),
+"city" character varying(255),
+"postal_code" character varying(10),
 "country_id" integer
 )
 WITH (OIDS=FALSE)
@@ -100,7 +100,7 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 CREATE TABLE "public"."club" (
 "club_id" serial primary key,
-"name" character varying(255) ,
+"name" character varying(255),
 "sale_amount" integer,
 "sale_percentage" numeric(3,2)
 )
@@ -124,9 +124,9 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 CREATE TABLE "public"."customer" (
 "customer_id" serial primary key,
-"first_name" character varying(128) ,
-"last_name" character varying(128) ,
-"phone_number" character varying(15) ,
+"first_name" character varying(128),
+"last_name" character varying(128),
+"phone_number" character varying(15),
 "club_id" integer,
 "email" character varying(255) NOT NULL,
 "password" character varying(255) NOT NULL
@@ -212,8 +212,8 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 CREATE TABLE "public"."movie" (
 "movie_id" serial primary key,
-"title" character varying(255) ,
-"descritption" text ,
+"title" character varying(255),
+"descritption" text,
 "running_time" integer,
 "release_date" date
 )
@@ -271,6 +271,7 @@ SELECT hs.seat_id, hs.seat_type_id, hs.seat_row, hs.seat_number, CASE WHEN (b.bo
 -- ----------------------------
 CREATE INDEX "booking_booking_status_id_idx" ON "public"."booking" USING btree (booking_status_id);
 CREATE INDEX "booking_customer_id_idx" ON "public"."booking" USING btree (customer_id);
+CREATE INDEX "booking_employee_id_idx" ON "public"."booking" USING btree (employee_id);
 CREATE INDEX "booking_projection_id_idx" ON "public"."booking" USING btree (projection_id);
 
 -- ----------------------------
@@ -321,6 +322,17 @@ CREATE INDEX "hall_seat_seat_type_id_idx" ON "public"."hall_seat" USING btree (s
 -- ----------------------------
 CREATE INDEX "projection_hall_id_idx" ON "public"."projection" USING btree (hall_id);
 CREATE INDEX "projection_movie_id_idx" ON "public"."projection" USING btree (movie_id);
+
+-- ----------------------------
+-- Indexes structure for table branch_office
+-- ----------------------------
+CREATE INDEX "branch_office_country_id_idx" ON "public"."branch_office" USING btree (country_id);
+
+-- ----------------------------
+-- Indexes structure for table movie_genre
+-- ----------------------------
+CREATE INDEX "movie_genre_movie_id_idx" ON "public"."movie_genre" USING btree (movie_id);
+CREATE INDEX "movie_genre_genre_id_idx" ON "public"."movie_genre" USING btree (genre_id);
 
 -- ----------------------------
 -- Foreign Key structure for table "public"."booking"
