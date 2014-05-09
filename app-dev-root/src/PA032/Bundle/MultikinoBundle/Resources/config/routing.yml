@@ -11,7 +11,7 @@ multikino_program_showProgram:
     pattern:  /program/{branchOfficeId}/{dateString}/
     defaults: { _controller: MultikinoBundle:Program:showProgram }
 multikino_detail:
-    pattern:  /detail/
+    pattern:  /detail/{projectionId}
     defaults: { _controller: MultikinoBundle:Detail:index }
 multikino_about:
     pattern:  /about/

@@ -8,11 +8,15 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DetailController extends Controller
 {
 	/**
+	 * Zobrazi detail projekce zaslane
+	 * 
 	 * @Template()
+	 * @param int $projectionId idcko projekce
+	 * @return array Data pro template
 	 */
-	public function indexAction()
+	public function indexAction($projectionId)
 	{
-		return array();
+		return array("projectionId" => $projectionId);
 	}
 }
 
