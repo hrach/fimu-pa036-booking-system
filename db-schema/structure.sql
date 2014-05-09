@@ -48,7 +48,7 @@ CREATE TABLE "public"."booking" (
 "projection_id" integer,
 "customer_id" integer,
 "booking_status_id" integer,
-"price_total" numeric(10,2),
+"price_total" numeric(10,2) CHECK (price_total >= 0),
 "time_created" timestamp with time zone,
 "employee_id" integer
 )
@@ -129,6 +129,7 @@ CREATE TABLE "public"."customer" (
 "phone_number" character varying(15),
 "club_id" integer,
 "email" character varying(255) NOT NULL,
+"username" character varying(255) NOT NULL,
 "password" character varying(255) NOT NULL
 )
 WITH (OIDS=FALSE)
@@ -240,7 +241,7 @@ CREATE TABLE "public"."projection" (
 "movie_id" integer,
 "hall_id" integer,
 "start" timestamp with time zone,
-"price" numeric(10,2),
+"price" numeric(10,2) CHECK (price >= 0),
 "is_3D" bool DEFAULT false NOT NULL
 )
 WITH (OIDS=FALSE)
