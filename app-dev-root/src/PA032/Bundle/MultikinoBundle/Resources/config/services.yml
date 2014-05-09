@@ -1,7 +1,19 @@
 parameters:
     multikino.branch_office_dao.class: PA032\Bundle\MultikinoBundle\DAO\BranchOfficeDAO
+    multikino.program_dao.class: PA032\Bundle\MultikinoBundle\DAO\ProgramDAO
+    multikino.hall_dao.class: PA032\Bundle\MultikinoBundle\DAO\HallDAO
+    multikino.projection_dao.class: PA032\Bundle\MultikinoBundle\DAO\ProjectionDAO
 
 services:
     multikino.branch_office_dao:
         class: %multikino.branch_office_dao.class%
+        arguments: ["@dao.db_connection"]
+    multikino.program_dao:
+        class: %multikino.program_dao.class%
+        arguments: ["@dao.db_connection"]
+    multikino.hall_dao:
+        class: %multikino.hall_dao.class%
+        arguments: ["@dao.db_connection"]
+    multikino.projection_dao:
+        class: %multikino.projection_dao.class%
         arguments: ["@dao.db_connection"]

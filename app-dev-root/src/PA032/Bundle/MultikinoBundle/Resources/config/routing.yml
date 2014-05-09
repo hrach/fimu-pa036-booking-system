@@ -4,6 +4,12 @@ multikino_homepage:
 multikino_program:
     pattern:  /program/
     defaults: { _controller: MultikinoBundle:Program:index }
+multikino_program_chooseDate:
+    pattern:  /program/{branchOfficeId}/
+    defaults: { _controller: MultikinoBundle:Program:chooseDate }
+multikino_program_showProgram:
+    pattern:  /program/{branchOfficeId}/{dateString}/
+    defaults: { _controller: MultikinoBundle:Program:showProgram }
 multikino_detail:
     pattern:  /detail/
     defaults: { _controller: MultikinoBundle:Detail:index }
