@@ -14,7 +14,7 @@ class BranchOfficeDAO extends DAOBaseImpl
 			$stmt = $this->db->query($strSQL);
 			while ($row = $stmt->fetch(\PDO::FETCH_NUM, \PDO::FETCH_ORI_NEXT))
 			{
-				print_r($row);
+				//print_r($row);
 			}
 		
 		}
