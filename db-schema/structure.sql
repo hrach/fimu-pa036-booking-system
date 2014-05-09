@@ -165,7 +165,8 @@ WITH (OIDS=FALSE)
 CREATE TABLE "public"."hall" (
 "hall_id" serial primary key,
 "branch_office_id" integer NOT NULL,
-"label" character varying(255) NOT NULL
+"label" character varying(255) NOT NULL,
+"is_3D" bool DEFAULT false NOT NULL
 )
 WITH (OIDS=FALSE)
 
