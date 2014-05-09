@@ -1,4 +1,4 @@
-﻿-- ----------------------------
+-- ----------------------------
 -- Records of country
 -- ----------------------------
 INSERT INTO "public"."country" (country_id, name) VALUES (1, 'Czech Republic');
@@ -16,7 +16,7 @@ select setval('branch_office_branch_office_id_seq', 3);
 -- ----------------------------
 -- Records of customer
 -- ----------------------------
-INSERT INTO "public"."customer" (customer_id, first_name, last_name, phone_number, club_id, email, password) VALUES ('1', 'jon', 'snow', '+420123456789', null, 'jon@example.com', 'pass');
+INSERT INTO "public"."customer" (customer_id, first_name, last_name, phone_number, club_id, email, username, password) VALUES ('1', 'jon', 'snow', '+420123456789', null, 'jon@example.com', 'jon', 'pass');
 select setval('customer_customer_id_seq',2);
 
 -- ----------------------------
