@@ -3,6 +3,7 @@
 namespace PA032\Bundle\MultikinoBundle\DAO;
 
 use IBA\Bundle\DAOBundle\DAO\DAOBaseImpl;
+use \DateTime;
 
 class ProjectionDAO extends DAOBaseImpl
 {
@@ -32,12 +33,13 @@ class ProjectionDAO extends DAOBaseImpl
 					  LEFT JOIN branch_office
 					    ON branch_office.branch_office_id = hall.branch_office_id
 					WHERE
-					  brach_office_id = :branch_office_id
+					  branch_office.branch_office_id = :branch_office_id
 					ORDER BY
-					  projection.start
+					  projection_date_year,
+					  projection_date_month,
+					  projection_date_day
 					');
 			$stmt->bindParam(':branch_office_id', $branchOfficeId);
-				
 			$stmt->execute();
 				
 			while ($row = $stmt->fetch(\PDO::FETCH_ASSOC, \PDO::FETCH_ORI_NEXT))

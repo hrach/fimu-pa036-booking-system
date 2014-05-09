@@ -39,7 +39,8 @@ class ProgramController extends Controller
 		
 		$projectionDates = $projectionDao->getDistinctProjectionDatesByIdBranchOffice($branchOfficeId);
 
-		return array("projectionDates" => $projectionDates);
+		return array("projectionDates" => $projectionDates,
+					 "branchOfficeId" => $branchOfficeId);
 	}
 	
 	/**
@@ -54,6 +55,8 @@ class ProgramController extends Controller
 		$hallDao = $this->get(MultikinoServiceList::HALL_DAO);
 		/* @var $programDao ProgramDAO */
 		$programDao = $this->get(MultikinoServiceList::PROGRAM_DAO);
+		/* @var $branchOfficeDao BranchOfficeDAO */
+		$branchOfficeDao = $this->get(MultikinoServiceList::BRANCH_OFFICE_DAO);
 		
 		$hallList = $hallDao->getAllByIdBranchOffice($branchOfficeId);
 		

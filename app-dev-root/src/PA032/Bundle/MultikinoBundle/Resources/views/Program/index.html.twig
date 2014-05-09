@@ -6,9 +6,12 @@
   <div class="row content-wrapper">
     <div class="large-12 columns">
       <h1>Program</h1>
-      <p>Zde bude Program</p>
       
-      
+      <ul>
+	    {% for branchOffice in listOfBranchOffices %}
+	        <li><a href="{{ path('multikino_program_chooseDate',{'branchOfficeId' : branchOffice.branchOfficeId}) }}">{{ branchOffice.name }}</a></li>
+	    {% endfor %}
+	  </ul>
       
     </div>
   </div>
