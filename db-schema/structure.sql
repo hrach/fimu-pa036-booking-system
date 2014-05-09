@@ -15,9 +15,34 @@ Date: 2014-05-07 11:45:50
 */
 
 -- ----------------------------
+-- Drop views
+-- ----------------------------
+DROP VIEW IF EXISTS "public"."projection_seats";
+
+-- ----------------------------
+-- Drop tables
+-- ----------------------------
+DROP TABLE IF EXISTS "public"."booking_hall_seat";
+DROP TABLE IF EXISTS "public"."booking";
+DROP TABLE IF EXISTS "public"."booking_status";
+DROP TABLE IF EXISTS "public"."employee";
+DROP TABLE IF EXISTS "public"."customer";
+DROP TABLE IF EXISTS "public"."club";
+DROP TABLE IF EXISTS "public"."projection";
+DROP TABLE IF EXISTS "public"."movie_genre";
+DROP TABLE IF EXISTS "public"."genre";                                     
+DROP TABLE IF EXISTS "public"."movie";
+DROP TABLE IF EXISTS "public"."hall_seat";
+DROP TABLE IF EXISTS "public"."seat_type";
+DROP TABLE IF EXISTS "public"."hall_hall_property";
+DROP TABLE IF EXISTS "public"."hall";
+DROP TABLE IF EXISTS "public"."branch_office";
+DROP TABLE IF EXISTS "public"."country";
+DROP TABLE IF EXISTS "public"."hall_property";
+
+-- ----------------------------
 -- Table structure for booking
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."booking";
 CREATE TABLE "public"."booking" (
 "booking_id" serial primary key,
 "projection_id" integer,
@@ -34,7 +59,6 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Table structure for booking_hall_seat
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."booking_hall_seat";
 CREATE TABLE "public"."booking_hall_seat" (
 "booking_id" integer NOT NULL,
 "seat_id" integer NOT NULL
@@ -46,7 +70,6 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Table structure for booking_status
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."booking_status";
 CREATE TABLE "public"."booking_status" (
 "booking_status_id" serial primary key,
 "status" varchar(255) COLLATE "default"
@@ -58,15 +81,14 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Table structure for branch_office
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."branch_office";
 CREATE TABLE "public"."branch_office" (
 "branch_office_id" serial primary key,
-"name" character varying(255) COLLATE "default",
-"description" text COLLATE "default",
-"address_line_1" character varying(255) COLLATE "default",
-"address_line_2" character varying(255) COLLATE "default",
-"city" character varying(255) COLLATE "default",
-"postal_code" character varying(10) COLLATE "default",
+"name" character varying(255) ,
+"description" text ,
+"address_line_1" character varying(255) ,
+"address_line_2" character varying(255) ,
+"city" character varying(255) ,
+"postal_code" character varying(10) ,
 "country_id" integer
 )
 WITH (OIDS=FALSE)
@@ -76,10 +98,9 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Table structure for club
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."club";
 CREATE TABLE "public"."club" (
 "club_id" serial primary key,
-"name" character varying(255) COLLATE "default",
+"name" character varying(255) ,
 "sale_amount" integer,
 "sale_percentage" numeric(3,2)
 )
@@ -90,10 +111,9 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Table structure for country
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."country";
 CREATE TABLE "public"."country" (
 "country_id" serial primary key,
-"name" character varying(255) COLLATE "default" NOT NULL
+"name" character varying(255) NOT NULL
 )
 WITH (OIDS=FALSE)
 
@@ -102,15 +122,14 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Table structure for customer
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."customer";
 CREATE TABLE "public"."customer" (
 "customer_id" serial primary key,
-"first_name" character varying(128) COLLATE "default",
-"last_name" character varying(128) COLLATE "default",
-"phone_number" character varying(15) COLLATE "default",
+"first_name" character varying(128) ,
+"last_name" character varying(128) ,
+"phone_number" character varying(15) ,
 "club_id" integer,
-"email" character varying(255) COLLATE "default" NOT NULL,
-"password" character varying(255) COLLATE "default" NOT NULL
+"email" character varying(255) NOT NULL,
+"password" character varying(255) NOT NULL
 )
 WITH (OIDS=FALSE)
 
@@ -119,11 +138,10 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Table structure for employee
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."employee";
 CREATE TABLE "public"."employee" (
 "employee_id" serial primary key,
-"username" character varying(255) COLLATE "default" NOT NULL,
-"password" character varying(255) COLLATE "default" NOT NULL
+"username" character varying(255) NOT NULL,
+"password" character varying(255) NOT NULL
 )
 WITH (OIDS=FALSE)
 
@@ -132,10 +150,9 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Table structure for genre
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."genre";
 CREATE TABLE "public"."genre" (
 "genre_id" serial primary key,
-"genre_type" character varying(255) COLLATE "default"
+"genre_type" character varying(255)
 )
 WITH (OIDS=FALSE)
 
@@ -144,11 +161,10 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Table structure for hall
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."hall";
 CREATE TABLE "public"."hall" (
 "hall_id" serial primary key,
 "branch_office_id" integer NOT NULL,
-"label" character varying(255) COLLATE "default" NOT NULL
+"label" character varying(255) NOT NULL
 )
 WITH (OIDS=FALSE)
 
@@ -157,7 +173,6 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Table structure for hall_hall_property
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."hall_hall_property";
 CREATE TABLE "public"."hall_hall_property" (
 "hall_property_id" integer NOT NULL,
 "hall_id" integer NOT NULL
@@ -169,11 +184,10 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Table structure for hall_property
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."hall_property";
 CREATE TABLE "public"."hall_property" (
 "hall_property_id" serial primary key,
-"key" character varying(255) COLLATE "default" NOT NULL,
-"value" character varying(255) COLLATE "default" NOT NULL
+"key" character varying(255) NOT NULL,
+"value" character varying(255) NOT NULL
 )
 WITH (OIDS=FALSE)
 
@@ -182,9 +196,8 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Table structure for hall_seat
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."hall_seat";
 CREATE TABLE "public"."hall_seat" (
-"seat_id"  serial primary key,
+"seat_id" serial primary key,
 "hall_id" integer,
 "seat_type_id" integer,
 "seat_row" integer,
@@ -197,11 +210,10 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Table structure for movie
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."movie";
 CREATE TABLE "public"."movie" (
 "movie_id" serial primary key,
-"title" character varying(255) COLLATE "default",
-"descritption" text COLLATE "default",
+"title" character varying(255) ,
+"descritption" text ,
 "running_time" integer,
 "release_date" date
 )
@@ -212,7 +224,6 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Table structure for movie_genre
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."movie_genre";
 CREATE TABLE "public"."movie_genre" (
 "movie_id" integer NOT NULL,
 "genre_id" integer NOT NULL
@@ -224,7 +235,6 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Table structure for projection
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."projection";
 CREATE TABLE "public"."projection" (
 "projection_id" serial primary key,
 "movie_id" integer,
@@ -240,10 +250,9 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- Table structure for seat_type
 -- ----------------------------
-DROP TABLE IF EXISTS "public"."seat_type";
 CREATE TABLE "public"."seat_type" (
 "seat_type_id" serial primary key,
-"seat_type" character varying(255) COLLATE "default" NOT NULL,
+"seat_type" character varying(255) NOT NULL,
 "seat_type_sale_amount" integer,
 "seat_type_sale_percantage" numeric(3,2)
 )
@@ -254,7 +263,7 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- View structure for projection_seats
 -- ----------------------------
-CREATE OR REPLACE VIEW "public"."projection_seats" AS 
+CREATE OR REPLACE VIEW "public"."projection_seats" AS
 SELECT hs.seat_id, hs.seat_type_id, hs.seat_row, hs.seat_number, CASE WHEN (b.booking_id IS NULL) THEN 'free'::text ELSE 'booked'::text END AS state FROM ((hall_seat hs LEFT JOIN projection p USING (hall_id)) LEFT JOIN (SELECT bhs.booking_id, bhs.seat_id FROM (booking_hall_seat bhs JOIN booking ON (((booking.booking_id = bhs.booking_id) AND (booking.booking_status_id <> 1))))) b USING (seat_id)) ORDER BY hs.seat_row, hs.seat_number;
 
 -- ----------------------------
