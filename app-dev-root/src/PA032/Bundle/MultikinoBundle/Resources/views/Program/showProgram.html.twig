@@ -6,9 +6,10 @@
   <div class="row content-wrapper">
     <div class="large-12 columns">
       <h1>Program - ukaz program</h1>
-      <p>Zde bude Program</p>
       
-      
+        {% for programRecord in programRecordList %}
+	        <li>{{ programRecord.projectionStartTime|date("H:i") }} - {{ programRecord.title }} (hall_id: {{ programRecord.hallId }})</li>
+	    {% endfor %}
       
     </div>
   </div>

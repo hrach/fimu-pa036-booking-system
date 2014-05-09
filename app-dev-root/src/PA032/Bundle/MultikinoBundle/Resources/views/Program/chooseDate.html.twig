@@ -6,8 +6,11 @@
   <div class="row content-wrapper">
     <div class="large-12 columns">
       <h1>Program - vyber datum</h1>
-      <p>Zde bude Program</p>
-      
+      <ul>
+	    {% for projectionDate in projectionDates %}
+	        <li><a href="{{ path('multikino_program_showProgram',{'branchOfficeId' : branchOfficeId, 'dateString': projectionDate|date("Y-m-d")}) }}">{{ projectionDate|date("Y-m-d") }}</a></li>
+	    {% endfor %}
+	  </ul>
       
       
     </div>

@@ -38,6 +38,11 @@ class BranchOfficeDAO extends DAOBaseImpl
 		
 		return $records;
 	}
+	
+	public function getById($brancheOfficeId)
+	{
+		
+	}
 }
 
 ?>
