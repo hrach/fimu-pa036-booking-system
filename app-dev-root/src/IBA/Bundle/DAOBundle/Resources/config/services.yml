@@ -1,0 +1,13 @@
+services:
+    dao.db_parameters:
+        class:    IBA\Bundle\DAOBundle\DAO\DbParameters
+        properties:
+            dbdriver: "%database_driver%"
+            dbhost: "%database_host%"
+            dbport: "%database_port%"
+            dbname: "%database_name%"
+            dbuser: "%database_user%"
+            dbpwd: "%database_password%"
+    dao.db_connection:
+        class:    IBA\Bundle\DAOBundle\DAO\DbConnection
+        arguments: ["@dao.db_parameters"]

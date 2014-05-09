@@ -1,7 +1,7 @@
 parameters:
-#    multikino.example.class: PA032\Bundle\MultikinoBundle\Example
+    multikino.branch_office_dao.class: PA032\Bundle\MultikinoBundle\DAO\BranchOfficeDAO
 
 services:
-#    multikino.example:
-#        class: %multikino.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    multikino.branch_office_dao:
+        class: %multikino.branch_office_dao.class%
+        arguments: ["@dao.db_connection"]
