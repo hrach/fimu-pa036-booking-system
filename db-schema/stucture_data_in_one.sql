@@ -496,7 +496,7 @@ INSERT INTO "public"."projection" (projection_id, movie_id, hall_id, start, pric
 INSERT INTO "public"."projection" (projection_id, movie_id, hall_id, start, price, "is_3D") VALUES (5, 6, 2, '2014-05-13 14:20:00+02', 120.00, 'f');
 INSERT INTO "public"."projection" (projection_id, movie_id, hall_id, start, price, "is_3D") VALUES (6, 7, 2, '2014-05-13 17:50:00+02', 150.00, 'f');
 INSERT INTO "public"."projection" (projection_id, movie_id, hall_id, start, price, "is_3D") VALUES (7, 3, 3, '2014-05-13 18:50:00+02', 150.00, 't');
-select setval('projection_projection_id_seq', 7, false);
+select setval('projection_projection_id_seq', 8, false);
 
 -- ----------------------------
 -- Records of seat_type
