@@ -5,19 +5,19 @@
 {% block content %}
   <div class="row panel">
     <div class="large-12 columns">
-      <h1>Program - {{ branchOffice.name }}</h1>
-      <hr />
-      <h2>Přehled dnů, kdy se promítá</h2>
+      <h2>{{ branchOffice.name }}</h2>
+      <br>
+
       <div class="row">
-        <div class="large-12 columns panel">
+        <div class="large-12 columns">
 	    {% for projectionDate in projectionDates %}
 	        <a href="{{ path('multikino_program_showProgram',{'branchOfficeId' : branchOfficeId, 'dateString': projectionDate|date("Y-m-d")}) }}"
 	           class="button">{{ projectionDate|date("Y-m-d") }}</a>
 	    {% endfor %}
   	    </div>
 	  </div>
-      
-      
+
+
     </div>
   </div>
 {% endblock %}

@@ -75,14 +75,19 @@ body, h1, h2, h3, h4, h5, a, footer p {
 
 .schedule-board {
 	position: relative;
-	background-image: url("../img/banner-bg.png");
-	background-repeat: repeat;
 }
 
 .projection {
 	position: absolute;
-	min-width: 100%;
-	border: solid 2px #555;
+	width: 100%;
+	background: white;
+	border-radius: 5px;
+	padding: 10px 15px;
+	box-shadow: 0 3px 1px rgba(0, 0,0, 0.1);
+}
+
+.projection a {
+	outline: none;
 }
 
 .projection h4 {
