@@ -30,7 +30,7 @@ DROP TABLE IF EXISTS "public"."customer";
 DROP TABLE IF EXISTS "public"."club";
 DROP TABLE IF EXISTS "public"."projection";
 DROP TABLE IF EXISTS "public"."movie_genre";
-DROP TABLE IF EXISTS "public"."genre";                                     
+DROP TABLE IF EXISTS "public"."genre";
 DROP TABLE IF EXISTS "public"."movie";
 DROP TABLE IF EXISTS "public"."hall_seat";
 DROP TABLE IF EXISTS "public"."seat_type";
@@ -266,7 +266,8 @@ WITH (OIDS=FALSE)
 -- View structure for projection_seats
 -- ----------------------------
 CREATE OR REPLACE VIEW "public"."projection_seats" AS
-SELECT hs.seat_id, hs.seat_type_id, hs.seat_row, hs.seat_number, CASE WHEN (b.booking_id IS NULL) THEN 'free'::text ELSE 'booked'::text END AS state FROM ((hall_seat hs LEFT JOIN projection p USING (hall_id)) LEFT JOIN (SELECT bhs.booking_id, bhs.seat_id FROM (booking_hall_seat bhs JOIN booking ON (((booking.booking_id = bhs.booking_id) AND (booking.booking_status_id <> 1))))) b USING (seat_id)) ORDER BY hs.seat_row, hs.seat_number;
+SELECT p.projection_id, hs.seat_id, hs.seat_type_id, hs.seat_row, hs.seat_number, CASE WHEN (b.booking_id IS NULL) THEN 'free'::text ELSE 'booked'::text END AS state FROM ((hall_seat hs LEFT JOIN projection p USING (hall_id)) LEFT JOIN (SELECT bhs.booking_id, bhs.seat_id FROM (booking_hall_seat bhs JOIN booking ON (((booking.booking_id = bhs.booking_id) AND (booking.booking_status_id <> 1))))) b USING (seat_id)) ORDER BY hs.seat_row, hs.seat_number;;
+
 
 -- ----------------------------
 -- Indexes structure for table booking
