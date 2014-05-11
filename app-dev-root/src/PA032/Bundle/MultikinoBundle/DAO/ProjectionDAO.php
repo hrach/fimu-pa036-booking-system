@@ -4,28 +4,10 @@ namespace PA032\Bundle\MultikinoBundle\DAO;
 
 use IBA\Bundle\DAOBundle\DAO\DAOBaseImpl;
 use \DateTime;
-use PA032\Bundle\MultikinoBundle\VO\ProjectionVO;
 use PA032\Bundle\MultikinoBundle\VO\SeatVO;
 
 class ProjectionDAO extends DAOBaseImpl
 {
-
-	public function getById($projectionId)
-	{
-		$statement = $this->db->prepare('SELECT * FROM projection WHERE projection_id = :projection_id');
-		$statement->bindParam('projection_id', $projectionId);
-		$statement->execute();
-
-		$row = $statement->fetchObject();
-		$projection = new ProjectionVO();
-		$projection->hallId = $row->hall_id;
-		$projection->is3D = $row->is_3D;
-		$projection->movieId = $row->movie_id;
-		$projection->price = $row->price;
-		$projection->projectionId = $row->projection_id;
-		$projection->start = new DateTime($row->start);
-		return $projection;
-	}
 
 	/**
 	 * @param int $branchOfficeId
