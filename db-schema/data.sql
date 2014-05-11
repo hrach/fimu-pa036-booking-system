@@ -482,7 +482,7 @@ INSERT INTO "public"."booking" (booking_id, projection_id, customer_id, booking_
 INSERT INTO "public"."booking" (booking_id, projection_id, customer_id, booking_status_id, price_total, time_created, employee_id)
   VALUES ('7', '7', '1', '2', '600.00', '2014-05-07 11:30:06+02', null);
 INSERT INTO "public"."booking" (booking_id, projection_id, customer_id, booking_status_id, price_total, time_created, employee_id)
-  VALUES ('8', '7', '1', '2', '600.00', '2014-05-07 11:30:06+02', null);  
+  VALUES ('8', '7', '1', '2', '600.00', '2014-05-07 11:30:06+02', null);
 select setval('booking_booking_id_seq', 9, false);
 
 -- ----------------------------
@@ -973,3 +973,60 @@ INSERT INTO "public"."booking_hall_seat" (booking_id, seat_id) VALUES (8, 280);
 INSERT INTO "public"."booking_hall_seat" (booking_id, seat_id) VALUES (8, 270);
 INSERT INTO "public"."booking_hall_seat" (booking_id, seat_id) VALUES (8, 277);
 INSERT INTO "public"."booking_hall_seat" (booking_id, seat_id) VALUES (8, 271);
+
+
+INSERT INTO "public"."hall" ("hall_id", "branch_office_id", "label", "is_3D") VALUES ('7', '1', 'Sál 4', 't');
+INSERT INTO "public"."projection" ("movie_id", "hall_id", "start", "price", "is_3D") VALUES ('1', '7', '2014-05-13 16:50:00+02', '150', 't');
+
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 1, 1);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 1, 2);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 1, 3);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 1, 4);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 1, 7);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 1, 8);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 1, 9);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 1, 10);
+
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 2, 1);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 2, 2);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 2, 3);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 2, 4);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 2, 7);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 2, 8);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 2, 9);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 2, 10);
+
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 3, 1);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 3, 2);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 3, 3);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 3, 4);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 3, 7);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 3, 8);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 3, 9);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 3, 10);
+
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 4, 1);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 4, 2);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 4, 3);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 4, 4);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 4, 7);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 4, 8);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 4, 9);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 4, 10);
+
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 5, 1);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 5, 2);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 5, 3);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 5, 4);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 5, 7);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 5, 8);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 5, 9);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 5, 10);
+
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 6, 1);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 2, 6, 2);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 6, 4);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 2, 6, 5);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 6, 7);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 2, 6, 8);
+INSERT INTO "public"."hall_seat" (hall_id, seat_type_id, seat_row, seat_number) VALUES (7, 1, 6, 10);
