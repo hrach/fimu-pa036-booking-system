@@ -5,8 +5,24 @@
 {% block content %}
   <div class="row panel">
     <div class="large-12 columns">
-      <h1>Detail projekce</h1>
-      <p>Zde bude detail projekce s ID: {{ projectionId }}</p>
+      <h1>{{ projection.title }} &ndash; {{  projection.projectionStartTime.format('H:i / d. m.') }}</h1>
+
+      <div class="plan">
+      <div class="plan-screen">plátno</div>
+      {% for rowNum, row in seats %}
+         <div class="plan-row" style="width: {{ maxSeat * 30 }}px">
+             <span class="plan-row-num">{{ alphabet[rowNum] }}</span>
+             <div class="plan-seats">
+             {% for seat in row %}
+             <div class="plan-seat-{{ seat.number }} plan-seat {{ seat.state }} plan-seat-type-{{ seat.type }}">
+                 {{ seat.number }}
+             </div>
+             {% endfor %}
+             </div>
+         </div>
+      {% endfor %}
+      </div>
     </div>
   </div>
+
 {% endblock %}

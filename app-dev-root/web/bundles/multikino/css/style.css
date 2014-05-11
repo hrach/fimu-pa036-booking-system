@@ -90,7 +90,7 @@ body, h1, h2, h3, h4, h5, a, footer p {
 }
 
 .projection p {
-	font-size: 0.8em;	
+	font-size: 0.8em;
 }
 
 hr.cleaner {
@@ -100,3 +100,49 @@ hr.cleaner {
 	border:none;
 	visibility: hidden;
 }
+
+
+.plan { border: 1px solid #ddd; background: white; padding: 20px 20px 20px 44px; float: left; border-radius: 5px; }
+.plan-screen { background: #ccc; text-align: center; padding: 5px; border-radius: 5px; margin-bottom: 60px; }
+.plan-row { margin: 10px 0; }
+.plan-row-num { position: absolute; margin: 7px 0 0 -20px;}
+.plan-seats { position: relative; height: 30px; }
+.plan-seat {
+	display: block; width: 29px; height: 29px; position: absolute; top: 0;
+	line-height: 30px; border-radius: 5px 5px 0 0;
+	text-align: center; font-weight: bold;
+
+	color: black;
+	background: linear-gradient(to bottom, #ddd 0%,#bbb 100%); /* W3C */
+}
+
+.plan-seat.booked {
+	color: #aaa;
+	background: linear-gradient(to bottom, #eee 0%,#ccc 100%); /* W3C */
+}
+
+.plan-seat-type-2 {
+	width: 59px;
+	border-bottom: 3px solid #F742D3;
+}
+
+.plan-seat-1 { left: 0; }
+.plan-seat-2 { left: 30px; }
+.plan-seat-3 { left: 60px; }
+.plan-seat-4 { left: 90px; }
+.plan-seat-5 { left: 120px; }
+.plan-seat-6 { left: 150px; }
+.plan-seat-7 { left: 180px; }
+.plan-seat-8 { left: 210px; }
+.plan-seat-9 { left: 240px; }
+.plan-seat-10 { left: 270px; }
+.plan-seat-11 { left: 300px; }
+.plan-seat-12 { left: 330px; }
+.plan-seat-13 { left: 360px; }
+.plan-seat-14 { left: 390px; }
+.plan-seat-15 { left: 420px; }
+.plan-seat-16 { left: 450px; }
+.plan-seat-17 { left: 480px; }
+.plan-seat-18 { left: 510px; }
+.plan-seat-19 { left: 530px; }
+.plan-seat-20 { left: 560px; }
