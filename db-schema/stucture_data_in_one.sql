@@ -18,6 +18,8 @@ Date: 2014-05-07 11:45:50
 -- Drop views
 -- ----------------------------
 DROP VIEW IF EXISTS "public"."projection_seats";
+DROP VIEW IF EXISTS "public"."projection_overview";
+DROP VIEW IF EXISTS "public"."projection_schedule";
 
 -- ----------------------------
 -- Drop tables
@@ -265,8 +267,15 @@ WITH (OIDS=FALSE)
 -- ----------------------------
 -- View structure for projection_seats
 -- ----------------------------
-CREATE OR REPLACE VIEW "public"."projection_seats" AS
+CREATE VIEW "public"."projection_seats" AS
 SELECT p.projection_id, hs.seat_id, hs.seat_type_id, hs.seat_row, hs.seat_number, CASE WHEN (b.booking_id IS NULL) THEN 'free'::text ELSE 'booked'::text END AS state FROM ((hall_seat hs LEFT JOIN projection p USING (hall_id)) LEFT JOIN (SELECT bhs.booking_id, bhs.seat_id FROM (booking_hall_seat bhs JOIN booking ON (((booking.booking_id = bhs.booking_id) AND (booking.booking_status_id <> 1))))) b USING (seat_id)) ORDER BY hs.seat_row, hs.seat_number;;
+
+CREATE VIEW "public"."projection_overview" AS
+SELECT projection.projection_id, movie.title, movie.descritption AS descritiption, movie.running_time, date_part('year'::text, movie.release_date) AS release_year, projection.start, projection.price AS projection_price, hall.hall_id, (SELECT ARRAY(SELECT genre.genre_type FROM (movie_genre LEFT JOIN genre ON ((genre.genre_id = movie_genre.genre_id))) WHERE (movie.movie_id = movie_genre.movie_id)) AS "array") AS genre_types, (SELECT count(*) AS count FROM (hall_seat LEFT JOIN projection pr ON ((pr.hall_id = hall_seat.hall_id))) WHERE (pr.projection_id = projection.projection_id)) AS seats_total, (SELECT count(*) AS count FROM (booking LEFT JOIN projection pr ON ((pr.projection_id = booking.projection_id))) WHERE (pr.projection_id = projection.projection_id)) AS seats_booked, branch_office.branch_office_id FROM (((projection LEFT JOIN movie ON ((movie.movie_id = projection.movie_id))) LEFT JOIN hall ON ((hall.hall_id = projection.hall_id))) LEFT JOIN branch_office ON ((branch_office.branch_office_id = hall.branch_office_id))) ORDER BY hall.label, projection.start;;
+
+CREATE VIEW "public"."projection_schedule" AS
+SELECT DISTINCT hall.branch_office_id, date_part('year'::text, projection.start) AS projection_date_year, date_part('month'::text, projection.start) AS projection_date_month, date_part('day'::text, projection.start) AS projection_date_day FROM (((projection LEFT JOIN movie ON ((movie.movie_id = projection.movie_id))) LEFT JOIN hall ON ((hall.hall_id = projection.hall_id))) LEFT JOIN branch_office ON ((branch_office.branch_office_id = hall.branch_office_id))) ORDER BY date_part('year'::text, projection.start), date_part('month'::text, projection.start), date_part('day'::text, projection.start);;
+
 
 -- ----------------------------
 -- Indexes structure for table booking
