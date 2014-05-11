@@ -1,8 +1,5 @@
 multikino_homepage:
     pattern:  /
-    defaults: { _controller: MultikinoBundle:Default:index }
-multikino_program:
-    pattern:  /program/
     defaults: { _controller: MultikinoBundle:Program:index }
 multikino_program_chooseDate:
     pattern:  /program/{branchOfficeId}/

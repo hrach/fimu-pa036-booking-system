@@ -3,16 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
+
 	<title>{% block pageTitle %}Starline Cinema | PA032 projekt{% endblock %}</title>
-    
+
     {% block styleSheets %}
 		{# 	    nutne pro foundation    #}
 		<link rel="stylesheet" href="{{ asset('bundles/multikino/css/foundation.css') }}" />
 		{# 	    vlastni styly    #}
 		<link rel="stylesheet" href="{{ asset('bundles/multikino/css/style.css') }}" />
 	{% endblock %}
-    
+
     {% block javaScripts %}
         {# 	    nutne pro foundation    #}
         {# 	    dalsi JS je v bloku javaScriptsFooter    #}
@@ -20,9 +20,9 @@
 	{% endblock %}
   </head>
   <body>
-  
+
     <div class="body-wrapper">
-    
+
       {% block topBar %}
 			<div class="row">
 			    <div class="large-5 columns">
@@ -30,18 +30,18 @@
 			    </div>
 			    <div class="large-7 columns">
 			      <ul class="right button-group">
-			      <li><a href="{{ path('multikino_program') }}" class="button">Program</a></li>
+			      <li><a href="{{ path('multikino_homepage') }}" class="button">Program</a></li>
 			      <li><a href="{{ path('multikino_about') }}" class="button">O projektu</a></li>
 			      <li><a href="https://github.com/hrach/pa036-booking-system" class="button">Doc & source</a></li>
 			      </ul>
 			  </div>
 			</div>
 	  {% endblock %}
-	
+
 	  {% block content %}
-		<p>Zde je prostor pro hlavní obsah</p>	  
+		<p>Zde je prostor pro hlavní obsah</p>
 	  {% endblock %}
-	
+
 	  <!-- Footer -->
 	  {% block footer %}
 		  <footer class="row">
@@ -49,23 +49,22 @@
 		      <hr />
 		      <div class="row">
 		        <div class="large-6 columns">
-		          <p>&copy; Copyright &ndash; A. Hejmalíček, R. Hůlek, J. Škrášek, E. Tomek</p>
+		          <p>&copy; 2014 &ndash; A. Hejmalíček, R. Hůlek, J. Škrášek, E. Tomek</p>
 		        </div>
 		        <div class="large-6 columns">
 		          <ul class="inline-list right">
-		            <li><a href="{{ path('multikino_homepage') }}">Úvod</a></li>
-		            <li><a href="{{ path('multikino_program') }}">Program</a></li>
+		            <li><a href="{{ path('multikino_homepage') }}">Program</a></li>
 			      <li><a href="{{ path('multikino_about') }}">O projektu</a></li>
 			      <li><a href="https://github.com/hrach/pa036-booking-system">Doc & source</a></li>
 		          </ul>
 		        </div>
 		      </div>
-		    </div> 
+		    </div>
 		  </footer>
 	  {% endblock %}
-	  
+
     </div><!-- /body-wrapper -->
-    
+
     {% block javaScriptsFooter %}
 	    {# 	    importy nutne pro foundation   #}
 	    <script src="{{ asset('bundles/multikino/js/vendor/jquery.js') }}"></script>
@@ -74,6 +73,6 @@
 	      $(document).foundation();
 	    </script>
 	{% endblock %}
-    
+
   </body>
 </html>
